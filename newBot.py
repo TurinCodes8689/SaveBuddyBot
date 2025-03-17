@@ -1,5 +1,6 @@
 import os
 import streamlit as st
+import streamlit.components.v1 as components
 from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
 from langchain_core.messages.utils import convert_to_messages
 from langchain_groq import ChatGroq
@@ -25,7 +26,6 @@ st.markdown(
         background-color: #f0f0f0;
         padding: 20px;
     }
-
     .chat-container {
         background-color: #F9FAFB;
         padding: 20px;
@@ -70,22 +70,23 @@ st.markdown(
     .stButton>button:hover {
         background-color: #45a049;
     }
-
-    .go-to-app>button {
-        background-color: #FF5733 !important;
+    .go-to-app {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .go-to-app button {
+        background-color: #FF5733;
         color: white;
         border: none;
         border-radius: 10px;
-        padding: 10px 20px;
+        padding: 12px 25px;
         cursor: pointer;
         font-weight: bold;
+        font-size: 16px;
+        transition: background-color 0.3s;
     }
-    .go-to-app>button:hover {
-        background-color: #E04E2A !important;
-    }
-
-    .stTitle {
-        text-align: center;
+    .go-to-app button:hover {
+        background-color: #E04E2A;
     }
     </style>
     """,
@@ -111,15 +112,11 @@ with st.form(key="chat_form"):
 if submit_button and query:
     human_message = HumanMessage(content=query)
     st.session_state.chat_history.append(human_message)
-
     converted_messages = convert_to_messages(st.session_state.chat_history)
-
     result = model.invoke(converted_messages)
     response = result.content
-
     ai_message = AIMessage(content=response)
     st.session_state.chat_history.append(ai_message)
-
     st.rerun()
 
 reset_button = st.button("Reset Conversation", key="reset_button")
@@ -127,5 +124,7 @@ if reset_button:
     st.session_state.chat_history = [SystemMessage(content="You are a helpful Finance-based AI Assistant who answers questions regarding finance and nothing else, and you will be working for SaveBuddy.")]
     st.rerun()
 
-if st.markdown("<div class='go-to-app'>" + st.button("Go To Main App") + "</div>", unsafe_allow_html=True):
-    st.markdown("<script>window.open('https://savebuddylives.vercel.app/', '_self')</script>", unsafe_allow_html=True)
+st.markdown(
+    '<div class="go-to-app"><a href="https://savebuddylives.vercel.app/" target="_self"><button>Go To Main App</button></a></div>',
+    unsafe_allow_html=True
+)
