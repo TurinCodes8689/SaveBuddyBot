@@ -46,10 +46,12 @@ st.markdown(
     .human-message {
         background-color:#D1E7FF;
         align-self: flex-start;
+        color: black;
     }
     .ai-message {
         background-color:#F0F8FF;
         align-self: flex-end;
+        color: black;
     }
     .input-box {
         margin-top: 20px;
