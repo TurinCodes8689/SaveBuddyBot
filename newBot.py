@@ -44,14 +44,14 @@ st.markdown(
         max-width: 75%;
     }
     .human-message {
-        background-color:#D1E7FF;
+        background-color: #D1E7FF;
         align-self: flex-start;
-        color: black;
+        color : black;
     }
     .ai-message {
-        background-color:#F0F8FF;
+        background-color: #F0F8FF;
         align-self: flex-end;
-        color: black;
+        color : black;
     }
     .input-box {
         margin-top: 20px;
@@ -69,6 +69,19 @@ st.markdown(
     }
     .stButton>button:hover {
         background-color: #45a049;
+    }
+
+    .go-to-app>button {
+        background-color: #FF5733 !important;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    .go-to-app>button:hover {
+        background-color: #E04E2A !important;
     }
 
     .stTitle {
@@ -113,3 +126,6 @@ reset_button = st.button("Reset Conversation", key="reset_button")
 if reset_button:
     st.session_state.chat_history = [SystemMessage(content="You are a helpful Finance-based AI Assistant who answers questions regarding finance and nothing else, and you will be working for SaveBuddy.")]
     st.rerun()
+
+if st.button("Go To Main App", key="go_to_app"):
+    st.markdown("<meta http-equiv='refresh' content='0;url=https://savebuddylives.vercel.app/'>", unsafe_allow_html=True)
