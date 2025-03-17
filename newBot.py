@@ -125,6 +125,6 @@ if reset_button:
     st.rerun()
 
 st.markdown(
-    '<div class="go-to-app"><a href="https://savebuddylives.vercel.app/" target="_self"><button>Go To Main App</button></a></div>',
+    '<div class="go-to-app"><a href="https://savebuddylives.vercel.app/" target="_blank"><button>Go To Main App</button></a></div>',
     unsafe_allow_html=True
 )
