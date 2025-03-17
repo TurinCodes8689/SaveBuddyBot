@@ -127,5 +127,5 @@ if reset_button:
     st.session_state.chat_history = [SystemMessage(content="You are a helpful Finance-based AI Assistant who answers questions regarding finance and nothing else, and you will be working for SaveBuddy.")]
     st.rerun()
 
-if st.button("Go To Main App", key="go_to_app"):
-    st.markdown("<meta http-equiv='refresh' content='0;url=https://savebuddylives.vercel.app/'>", unsafe_allow_html=True)
+if st.markdown("<div class='go-to-app'>" + st.button("Go To Main App") + "</div>", unsafe_allow_html=True):
+    st.markdown("<script>window.open('https://savebuddylives.vercel.app/', '_self')</script>", unsafe_allow_html=True)
