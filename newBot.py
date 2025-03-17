@@ -44,11 +44,11 @@ st.markdown(
         max-width: 75%;
     }
     .human-message {
-        background-color: #D1E7FF;
+        background-color:#fc03ba;
         align-self: flex-start;
     }
     .ai-message {
-        background-color: #F0F8FF;
+        background-color:#fc0390;
         align-self: flex-end;
     }
     .input-box {
