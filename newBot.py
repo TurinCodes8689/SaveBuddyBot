@@ -5,7 +5,7 @@ from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
 from langchain_core.messages.utils import convert_to_messages
 from langchain_groq import ChatGroq
 
-os.environ["GROQ_API_KEY"] = "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"
+os.environ["GROQ_API_KEY"] = "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"
 
 model = ChatGroq(model="llama3-8b-8192", api_key=os.environ["GROQ_API_KEY"])
 
